@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface TrainingEnvironmentService {
 
-    TrainingEnvironment getTrainingEnvironment(UUID id) throws EntityNotFoundException;
+    TrainingEnvironment getTrainingEnvironment(UUID id);
 
     List<TrainingEnvironment> getTrainingEnvironments();
 

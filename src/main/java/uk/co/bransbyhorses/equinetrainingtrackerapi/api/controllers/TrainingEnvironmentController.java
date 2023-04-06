@@ -1,6 +1,6 @@
 package uk.co.bransbyhorses.equinetrainingtrackerapi.api.controllers;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,15 +14,13 @@ import java.net.URI;
 import java.util.List;
 import java.util.UUID;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RestController
 @RequestMapping(value = ApiMappingConstants.TRAINING_ENVIRONMENT_ROUTE)
 public class TrainingEnvironmentController {
 
-    @Autowired
-    private TrainingEnvironmentService service;
-    @Autowired
-    private TrainingEnvironmentMapper mapper;
+    @Autowired private final TrainingEnvironmentService service;
+    @Autowired private final TrainingEnvironmentMapper mapper;
 
     @GetMapping
     public ResponseEntity<List<TrainingEnvironmentDto>> getTrainingEnvironments() {
