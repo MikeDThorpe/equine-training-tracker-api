@@ -5,9 +5,5 @@ import uk.co.bransbyhorses.equinetrainingtrackerapi.api.models.LearnerType;
 import uk.co.bransbyhorses.equinetrainingtrackerapi.api.models.dto.LearnerTypeDto;
 
 @Mapper(componentModel = "spring")
-public interface LearnerTypeMapper {
-
-    LearnerTypeDto mapToDto(LearnerType learnerType);
-
-    LearnerType mapToEntity(LearnerTypeDto learnerType);
+public interface LearnerTypeMapper extends ModelMapper<LearnerType, LearnerTypeDto> {
 }

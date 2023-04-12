@@ -7,9 +7,5 @@ import uk.co.bransbyhorses.equinetrainingtrackerapi.api.models.TrainingEnvironme
 import uk.co.bransbyhorses.equinetrainingtrackerapi.api.models.dto.TrainingEnvironmentDto;
 
 @Mapper(componentModel = "spring")
-public interface TrainingEnvironmentMapper {
-
-    TrainingEnvironmentDto mapToDto(TrainingEnvironment trainingEnvironment);
-
-    TrainingEnvironment mapToEntity(TrainingEnvironmentDto trainingEnvironment);
+public interface TrainingEnvironmentMapper extends ModelMapper<TrainingEnvironment, TrainingEnvironmentDto> {
 }
