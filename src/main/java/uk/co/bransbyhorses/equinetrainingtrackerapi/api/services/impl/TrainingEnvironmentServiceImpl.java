@@ -20,28 +20,31 @@ public class TrainingEnvironmentServiceImpl implements TrainingEnvironmentServic
     private final TrainingEnvironmentRepository trainingEnvironmentRepository;
 
     @Override
-    public TrainingEnvironment getTrainingEnvironment(UUID id) throws EntityNotFoundException {
+    public TrainingEnvironment getOneRecord(UUID id) throws EntityNotFoundException {
         return trainingEnvironmentRepository.findById(id)
                 .orElseThrow(EntityNotFoundException::new);
     }
 
     @Override
-    public List<TrainingEnvironment> getTrainingEnvironments() {
+    public List<TrainingEnvironment> getAllRecords() {
         return trainingEnvironmentRepository.findAll();
     }
 
     @Override
-    public TrainingEnvironment createTrainingEnvironment(TrainingEnvironment trainingEnvironment) {
+    public TrainingEnvironment createRecord(TrainingEnvironment trainingEnvironment) {
         return trainingEnvironmentRepository.save(trainingEnvironment);
     }
 
     @Override
-    public TrainingEnvironment updateTrainingEnvironment(TrainingEnvironment trainingEnvironment) {
-        return null;
+    public TrainingEnvironment updateRecord(TrainingEnvironment updatedTrainingEnvironment, UUID id) {
+        TrainingEnvironment trainingEnvironmentToUpdate = trainingEnvironmentRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+        trainingEnvironmentToUpdate.setName(updatedTrainingEnvironment.getName());
+        return trainingEnvironmentRepository.save(trainingEnvironmentToUpdate);
     }
 
     @Override
-    public void deleteTrainingEnvironment(UUID id) {
+    public void deleteRecord(UUID id) {
         trainingEnvironmentRepository.deleteById(id);
     }
 }

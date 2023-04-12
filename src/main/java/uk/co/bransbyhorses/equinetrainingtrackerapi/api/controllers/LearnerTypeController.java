@@ -23,7 +23,7 @@ public class LearnerTypeController {
 
     @GetMapping
     public ResponseEntity<List<LearnerTypeDto>> getLearnerTypes() {
-        List<LearnerTypeDto> learnerTypes = service.getLearnerTypes()
+        List<LearnerTypeDto> learnerTypes = service.getAllRecords()
                 .stream()
                 .map(mapper::mapToDto)
                 .toList();
@@ -34,7 +34,7 @@ public class LearnerTypeController {
 
     @GetMapping(value = "{id}")
     public ResponseEntity<LearnerTypeDto> getLearnerType(@PathVariable(name = "id")UUID id) {
-        LearnerType learnerType = service.getLearnerType(id);
+        LearnerType learnerType = service.getOneRecord(id);
         return ResponseEntity
                 .ok()
                 .body(mapper.mapToDto(learnerType));
@@ -42,7 +42,7 @@ public class LearnerTypeController {
 
     @PostMapping
     public ResponseEntity<LearnerTypeDto> createLearnerType(@RequestBody LearnerTypeDto newLearnerType) {
-        LearnerType newLearnerTypeSaved = service.createLearnerType(mapper.mapToEntity(newLearnerType));
+        LearnerType newLearnerTypeSaved = service.createRecord(mapper.mapToEntity(newLearnerType));
         URI resourcePath = URI.create(ApiMappingConstants.LEARNER_TYPE_ROUTE + "/" + newLearnerTypeSaved.getId().toString());
         return ResponseEntity
                 .created(resourcePath)
@@ -53,7 +53,7 @@ public class LearnerTypeController {
     public ResponseEntity<LearnerTypeDto> updateLearnerType(
             @PathVariable(value = "id") UUID id,
             @RequestBody LearnerTypeDto updatedLearnerTypeValues) {
-        LearnerType updatedLearnerType = service.updateLearnerType(id, mapper.mapToEntity(updatedLearnerTypeValues));
+        LearnerType updatedLearnerType = service.updateRecord(mapper.mapToEntity(updatedLearnerTypeValues), id);
         return ResponseEntity
                 .ok()
                 .body(mapper.mapToDto(updatedLearnerType));
@@ -61,7 +61,7 @@ public class LearnerTypeController {
 
     @DeleteMapping(value = "{id}")
     public ResponseEntity<LearnerTypeDto> deleteLearnerType(@PathVariable(name = "id")UUID id) {
-        service.deleteLearnerType(id);
+        service.deleteRecord(id);
         return ResponseEntity
                 .noContent()
                 .build();

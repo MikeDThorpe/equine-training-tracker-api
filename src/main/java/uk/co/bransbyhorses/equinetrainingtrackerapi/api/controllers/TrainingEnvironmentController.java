@@ -24,7 +24,7 @@ public class TrainingEnvironmentController {
 
     @GetMapping
     public ResponseEntity<List<TrainingEnvironmentDto>> getTrainingEnvironments() {
-        List<TrainingEnvironmentDto> trainingEnvironments = service.getTrainingEnvironments()
+        List<TrainingEnvironmentDto> trainingEnvironments = service.getAllRecords()
                 .stream()
                 .map(mapper::mapToDto)
                 .toList();
@@ -35,7 +35,7 @@ public class TrainingEnvironmentController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<TrainingEnvironmentDto> getTrainingEnvironment(@PathVariable(name = "id") UUID id) {
-        TrainingEnvironment trainingEnvironment = service.getTrainingEnvironment(id);
+        TrainingEnvironment trainingEnvironment = service.getOneRecord(id);
         return ResponseEntity
                 .ok()
                 .body(mapper.mapToDto(trainingEnvironment));
@@ -43,7 +43,7 @@ public class TrainingEnvironmentController {
 
     @PostMapping
     public ResponseEntity<TrainingEnvironmentDto> createTrainingEnvironment(@RequestBody TrainingEnvironmentDto trainingEnvironment) {
-        TrainingEnvironment newTrainingEnvironment = service.createTrainingEnvironment(mapper.mapToEntity(trainingEnvironment));
+        TrainingEnvironment newTrainingEnvironment = service.createRecord(mapper.mapToEntity(trainingEnvironment));
         URI resourcePath = URI.create(ApiMappingConstants.TRAINING_ENVIRONMENT_ROUTE + "/" + newTrainingEnvironment.getId().toString());
         return ResponseEntity
                 .created(resourcePath)
@@ -55,7 +55,7 @@ public class TrainingEnvironmentController {
             @PathVariable(name = "id") UUID id,
             @RequestBody TrainingEnvironmentDto trainingEnvironment)
     {
-        TrainingEnvironment updatedTrainingEnvironment = service.updateTrainingEnvironment(mapper.mapToEntity(trainingEnvironment));
+        TrainingEnvironment updatedTrainingEnvironment = service.updateRecord(mapper.mapToEntity(trainingEnvironment), id);
         return ResponseEntity
                 .ok()
                 .body(mapper.mapToDto(updatedTrainingEnvironment));
@@ -63,7 +63,7 @@ public class TrainingEnvironmentController {
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity deleteTrainingEnvironment(@PathVariable(name = "id") UUID id) {
-        service.deleteTrainingEnvironment(id);
+        service.deleteRecord(id);
         return ResponseEntity
                 .noContent()
                 .build();

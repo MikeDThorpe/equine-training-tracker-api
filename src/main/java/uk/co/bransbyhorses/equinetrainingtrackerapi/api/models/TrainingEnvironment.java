@@ -9,6 +9,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 @ToString
 @Entity
 @Table(name = "training_environments")

@@ -6,15 +6,5 @@ import uk.co.bransbyhorses.equinetrainingtrackerapi.api.models.TrainingEnvironme
 import java.util.List;
 import java.util.UUID;
 
-public interface TrainingEnvironmentService {
-
-    TrainingEnvironment getTrainingEnvironment(UUID id);
-
-    List<TrainingEnvironment> getTrainingEnvironments();
-
-    TrainingEnvironment createTrainingEnvironment(TrainingEnvironment trainingEnvironment);
-
-    TrainingEnvironment updateTrainingEnvironment(TrainingEnvironment trainingEnvironment);
-
-    void deleteTrainingEnvironment(UUID id);
+public interface TrainingEnvironmentService extends ApiCrudService<TrainingEnvironment> {
 }

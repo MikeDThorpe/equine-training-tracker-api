@@ -17,31 +17,31 @@ public class LearnerTypeServiceImpl implements LearnerTypeService {
     private final LearnerTypeRepository repository;
 
     @Override
-    public LearnerType getLearnerType(UUID id) {
+    public LearnerType getOneRecord(UUID id) {
         return repository.findById(id)
                 .orElseThrow(EntityNotFoundException::new);
     }
 
     @Override
-    public List<LearnerType> getLearnerTypes() {
+    public List<LearnerType> getAllRecords() {
         return repository.findAll();
     }
 
     @Override
-    public LearnerType createLearnerType(LearnerType learnerType) {
+    public LearnerType createRecord(LearnerType learnerType) {
         return repository.save(learnerType);
     }
 
     @Override
-    public LearnerType updateLearnerType(UUID id, LearnerType updatedLearnerType) {
-        LearnerType learnerTypeToUpdate = repository.findById(updatedLearnerType.getId())
+    public LearnerType updateRecord(LearnerType updatedLearnerType, UUID id) {
+        LearnerType learnerTypeToUpdate = repository.findById(id)
                 .orElseThrow(EntityNotFoundException::new);
         learnerTypeToUpdate.setName(updatedLearnerType.getName());
         return repository.save(learnerTypeToUpdate);
     }
 
     @Override
-    public void deleteLearnerType(UUID id) {
+    public void deleteRecord(UUID id) {
         LearnerType learnerType = repository.findById(id)
                 .orElseThrow(EntityNotFoundException::new);
         repository.delete(learnerType);
