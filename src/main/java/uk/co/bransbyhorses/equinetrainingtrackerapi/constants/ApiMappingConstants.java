@@ -6,6 +6,7 @@ public final class ApiMappingConstants {
     public static final String TRAINING_ENVIRONMENT_ROUTE = BASE_API_ROUTE + "/training-environments";
     public static final String TRAINING_SKILL_ROUTE = BASE_API_ROUTE + "/training-skills";
     public static final String LEARNER_TYPE_ROUTE = BASE_API_ROUTE + "/learner-types";
+    public static final String TRAINING_CATEGORY_ROUTE = BASE_API_ROUTE + "/training-categories";
 
     /** private constructor to prevent instance being created */
     private ApiMappingConstants() {}

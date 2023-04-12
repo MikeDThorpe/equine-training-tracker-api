@@ -23,7 +23,7 @@ public class TrainingSkillServiceImpl implements TrainingSkillService {
     }
 
     @Override
-    public List<TrainingSkill> getAllRecords(UUID id) {
+    public List<TrainingSkill> getAllRecords() {
         return repository.findAll();
     }
 
