@@ -11,7 +11,7 @@ public interface ApiCrudService<T> {
 
     T createRecord(T newRecord);
 
-    T updateRecord(T record, UUID id);
+    T updateRecord(T updatedRecord, UUID id);
 
     void deleteRecord(UUID id);
 }
