@@ -2,6 +2,8 @@ package uk.co.bransbyhorses.equinetrainingtrackerapi.api.services.impl;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.stereotype.Service;
 import uk.co.bransbyhorses.equinetrainingtrackerapi.api.models.HealthAndSafetyFlag;
 import uk.co.bransbyhorses.equinetrainingtrackerapi.api.repositories.HealthAndSafetyFlagRepository;
