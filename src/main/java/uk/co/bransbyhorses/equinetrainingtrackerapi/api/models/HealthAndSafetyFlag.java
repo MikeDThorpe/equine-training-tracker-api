@@ -15,8 +15,9 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 @Entity
-@EntityListeners(AuditingEntityListener.class) // auto populates audited fields (uses spring security context)
+@EntityListeners(AuditingEntityListener.class) // auto-populates audited fields (uses spring security context)
 @Table(name = "health_and_safety_flags")
 public class HealthAndSafetyFlag {
 
@@ -38,11 +39,11 @@ public class HealthAndSafetyFlag {
     private Timestamp createdDate;
 
     @LastModifiedDate
-    @Column(name = "last_modified_date", nullable = false)
+    @Column(name = "last_modified_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp lastModifiedDate;
 
     @LastModifiedBy
-    @Column(name = "last_modified_by", nullable = false)
+    @Column(name = "last_modified_by")
     private String lastModifiedBy;
 }
