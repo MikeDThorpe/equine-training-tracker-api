@@ -11,6 +11,7 @@ public final class ApiMappingConstants {
     public static final String TRAINING_METHOD_ROUTE = BASE_API_ROUTE + "/training-methodss";
     public static final String YARD_ROUTE = BASE_API_ROUTE + "/yards";
     public static final String HEALTH_AND_SAFETY_FLAG_ROUTE = BASE_API_ROUTE + "/health-and-safety-flags";
+    public static final String DISRUPTION_ROUTE = BASE_API_ROUTE + "/disruptions";
 
     /** private constructor to prevent instance being created */
     private ApiMappingConstants() {}
