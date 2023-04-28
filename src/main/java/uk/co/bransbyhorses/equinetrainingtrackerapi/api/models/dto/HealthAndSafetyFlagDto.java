@@ -1,5 +1,6 @@
 package uk.co.bransbyhorses.equinetrainingtrackerapi.api.models.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,9 +26,11 @@ public class HealthAndSafetyFlagDto {
     private String createdBy;
 
     @JsonProperty(value = "createdDate")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private OffsetDateTime createdDate;
 
     @JsonProperty(value = "lastModifiedDate")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private OffsetDateTime lastModifiedDate;
 
     @JsonProperty(value = "lastModifiedBy")
