@@ -2,6 +2,8 @@ package uk.co.bransbyhorses.equinetrainingtrackerapi.api.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 import uk.co.bransbyhorses.equinetrainingtrackerapi.api.models.HealthAndSafetyFlag;
 import uk.co.bransbyhorses.equinetrainingtrackerapi.api.models.dto.HealthAndSafetyFlagDto;
@@ -10,6 +12,7 @@ import uk.co.bransbyhorses.equinetrainingtrackerapi.constants.ApiMappingConstant
 import uk.co.bransbyhorses.equinetrainingtrackerapi.mappers.HealthAndSafetyFlagMapper;
 
 import java.net.URI;
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 

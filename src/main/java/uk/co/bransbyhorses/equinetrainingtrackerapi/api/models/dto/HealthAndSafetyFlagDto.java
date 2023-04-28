@@ -21,6 +21,9 @@ public class HealthAndSafetyFlagDto {
     @JsonProperty(value = "content")
     private String content;
 
+    @JsonProperty(value = "createdBy")
+    private String createdBy;
+
     @JsonProperty(value = "createdDate")
     private OffsetDateTime createdDate;
 
