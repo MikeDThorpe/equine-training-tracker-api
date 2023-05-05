@@ -22,6 +22,9 @@ public class DisruptionDto {
     @JsonProperty(value = "disruptionCode")
     private DisruptionCode disruptionCode;
 
+    @JsonProperty(value = "equine")
+    private EquineDto equine;
+
     @JsonProperty(value = "startDate")
     private OffsetDateTime startDate;
 

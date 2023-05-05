@@ -29,6 +29,10 @@ public class HealthAndSafetyFlag {
     @Column(name = "content", nullable = false)
     private String content;
 
+    @ManyToOne
+    @JoinColumn(name = "equine_id", referencedColumnName = "equine_id")
+    private Equine equine;
+
     @CreatedBy
     @Column(name = "created_by", updatable = false)
     private String createdBy;
