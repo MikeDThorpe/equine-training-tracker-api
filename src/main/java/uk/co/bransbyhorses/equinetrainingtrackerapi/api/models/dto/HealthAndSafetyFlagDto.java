@@ -22,6 +22,9 @@ public class HealthAndSafetyFlagDto {
     @JsonProperty(value = "content")
     private String content;
 
+    @JsonProperty(value = "equine")
+    private EquineDto equine;
+
     @JsonProperty(value = "createdBy")
     private String createdBy;
 
